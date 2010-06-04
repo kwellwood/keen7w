@@ -1,0 +1,138 @@
+655 16 24
+656 24 22
+657 24 24
+658 16 24
+659 24 22
+660 24 24
+661 24 22
+662 16 24
+663 16 7
+664 16 6
+667 24 24
+668 24 24
+669 24 24
+670 24 24
+671 24 24
+672 24 24
+673 24 24
+689 32 32
+690 32 32
+691 32 32
+692 32 32
+712 22 16
+716 22 16
+720 22 16
+733 28 16
+734 38 16
+735 40 16
+736 28 16
+737 38 16
+738 40 16
+751 40 40
+755 62 20
+501 24 16
+503 24 16
+769 16 22
+770 16 22
+772 16 22
+787 24 24
+789 62 24
+790 24 24
+792 62 24
+774 20 24
+1291 20 38
+1293 20 38
+1309 20 38
+1311 20 38
+1690 16 48
+1691 16 48
+1708 16 48
+1709 16 48
+1726 48 16
+1727 48 16
+1744 48 16
+1745 48 16
+1671 16 32
+1672 16 16
+1673 16 16
+1674 32 16
+539 24 28
+515 24 28
+519 24 28
+536 24 28
+533 24 28
+537 24 28
+534 24 28
+540 24 28
+528 64 24
+529 64 24
+531 24 70
+(0) slug left 1
+(1) slug left 2
+(2) slug poop left
+(3) slug right 1
+(4) slug right 2
+(5) slug poop right
+(6) slug die poop
+(7) slug die regular
+(8) slug's poo 1
+(9) slug's poo 2
+(10) ball left 1
+(11) ball left 2
+(12) ball right 1
+(13) ball right 2
+(14) ball up 1
+(15) ball up 2
+(16) ball die
+(17) mushroom left 1
+(18) mushroom left 2
+(19) mushroom right 1
+(20) mushroom right 2
+(21) lick left frame 1 of 4
+(22) lick right frame 1 of 4
+(23) lick dead
+(24) lick attack left 1
+(25) lick attack left 2
+(26) lick attack left 3
+(27) lick attack right 1
+(28) lick attack right 2
+(29) lick attack right 3
+(30) arachnut run
+(31) arachnut stunned
+(32) worm left frame 1 of 2
+(33) worm right frame 1 of 2
+(34) snake moving
+(35) snake look left
+(36) snake look right
+(37) snake attack left 1 (popup)
+(38) snake attack left 2 (bite)
+(39) snake attack right 1 (popup)
+(40) snake attack right 2 (bite)
+(41) snake dead
+(42) ancient walk left
+(43) ancient brood left
+(44) ancient walk right
+(45) ancient brood right
+(46) spear up sit
+(47) spear up attack
+(48) spear down sit
+(49) spear down attack
+(50) spear left sit
+(51) spear left attack
+(52) spear right sit
+(53) spear right attack
+(54) shooter up
+(55) shooter down
+(56) shooter left
+(57) shooter right
+(58) mimrock sit
+(59) mimrock sneak left
+(60) mimrock sneak right
+(61) mimrock jump left
+(62) mimrock jump right
+(63) mimrock onhead left
+(64) mimrock onhead right
+(65) mimrock dead
+(66) cloud undisturbed
+(67) cloud angry/attack 1 of 2
+(68) lightning frame 1 of 2

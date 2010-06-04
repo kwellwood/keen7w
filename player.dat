@@ -1,0 +1,138 @@
+1
+1  24 32
+2  24 32
+4   0  0
+6  24 32
+7  24 32
+4   0  0
+11 24 32
+12 24 32
+13 24 32
+14 24 32
+15 24 32
+16 24 32
+25 24 32
+26 24 32
+28 40 32
+29 28 32
+30 32 48
+31 40 32
+32 28 32
+33 32 48
+34 32 32
+35 24 32
+17 24 32
+50 16 32
+5  0   0
+19 26 32
+3  0   0
+22 26 32
+3  0   0
+61 24 32
+4  0   0
+55 40 32
+56 32 40
+57 32 32
+58 24 32
+59 32 40
+60 32 32
+65 24 32
+66 24 32
+67 24 32
+68 24 32
+73 16 40
+78 24 40
+74 22 40
+79 22 40
+40 24 32
+4   0  0
+44 24 32
+45 24 32
+2   0  0
+47 24 32
+2   0  0
+2413 16 16
+2416 16 16
+2419 16 16
+2422 16 16
+2425 16 16
+2428 16 16
+2431 16 16
+2434 16 16
+2437 16 16
+2439 16 16
+2441 16 16
+2443 16 16
+2445 16 16
+2447 16 16
+2449 16 16
+2451 16 16
+animation delay
+(0) stand left
+(1) walk left start
+(2) walk left frames
+(3) stand right
+(4) walk right start
+(5) walk right frames
+(6) left jump up
+(7) left jump apex
+(8) left falling
+(9) right jump up
+(10) right jump apex
+(11) right falling
+(12) looking up
+(13) looking down
+(14) shoot walk left
+(15) shoot walk right
+(16) shoot up
+(17) shoot jump left
+(18) shoot jump right
+(19) shoot jump up
+(20) shoot jump down
+(21) flip switch
+(22) dying
+(23) walking through door start
+(24) walk through door frames
+(25) climb up left
+(26) climb up left frames
+(27) climb up right
+(28) climb up right frames
+(29) climb down
+(30) climb down frames
+(31) shoot pole left
+(32) shoot pole left up
+(33) shoot pole left down
+(34) shoot pole right
+(35) shoot pole right up
+(36) shoot pole right down
+(37) pogo left ground
+(38) pogo left air
+(39) pogo right ground
+(40) pogo right air
+(41) hang onto a ledge left
+(42) hang onto a ledge right
+(43) climb onto a ledge left
+(44) climb onto a ledge right
+(45) sitting down
+(46) sitting down frames
+(47) reading book
+(48) turning page
+(49) turning page frames
+(50) standing up
+(51) standing up frames
+(52) mapmode walk up
+(53) mapmode walk down
+(54) mapmode walk left
+(55) mapmode walk right
+(56) mapmode walk up left
+(57) mapmode walk up right
+(58) mapmode walk down left
+(59) mapmode walk down right
+(60) mapmode swim up
+(61) mapmode swim down
+(62) mapmode swim left
+(63) mapmode swim right
+(64) mapmode swim up left
+(65) mapmode swim up right
+(66) mapmode swim down left
+(67) mapmode swim down right
