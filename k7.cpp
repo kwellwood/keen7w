@@ -2,19 +2,22 @@
 #include <fstream>
 #include <sstream>
 #include <allegro.h>
+#include <almp3.h>
 using namespace std;
 #include "k7.h"
 // 1-12-04: 8,012 lines; 175 pages at 46 lines/page
 
 /* to do now:
+[ ] doAncientRescued
+[ ] doCantSwim
 [ ] save/load games
-[x] datafile for bmps
 */
 
 /* to do later:
 [ ] use rle_sprites for speed
 [ ] slugs turning around on holeHere in crystalus
 [ ] fix enemy vertical jitter
+[ ] fix sprite jitter (x,y?)
 [ ] fix player jittering (player.cpp:draw():104)
 [ ] actively check for ledge if hanging (hanging off changing tiles)
 [ ] tweak climbing ledge animation
@@ -25,6 +28,7 @@ void main(int argc, char *argv[])
 {
     for (int i=1; i<argc; i++)
     {   if (strcmp(argv[i], "-windowed") == 0) forcewindowed = true; }
+    forcewindowed = true;
     
     // --- Initialize Allegro ---
     allegro_init();
@@ -34,6 +38,7 @@ void main(int argc, char *argv[])
     set_window_close_button(1);
     set_window_close_hook(closeButton);
     initGraphicsMode();
+    Audio::init();
 
     // --- Initialize engine and load data ---
     initEngine();
@@ -49,7 +54,7 @@ void main(int argc, char *argv[])
     loadLevel(curlevel);
 
     doTitleScreen();
-
+    
     mainloop();
 
     // --- Shut down and clear memory ---
@@ -93,10 +98,10 @@ void mainloop()
             drawScreen();
         }
 
-        if (levelsComplete[curlevel])           // end level with victory
-        {   endLevel(SUCCESSFUL); }
         if (gamecompleteflag)                    // game has been won; stop
         {   gamecompleteflag=false; winGame(); } // play and show winGame
+        if (levelsComplete[curlevel])           // end level with victory
+        {   endLevel(SUCCESSFUL); }
         if (player->dead()) tryAgainMenu();
         if (gameoverflag)                        // game is all over; stop
         {   gameoverflag=false; endGame(); }     // play, return to main menu
@@ -642,7 +647,7 @@ void initEngine()
     {   levelsComplete[i] = false; }
 
     // --- Load the color palette ---
-    packfile_password(NULL/*insert password here*/).c_str());
+    packfile_password(string(string("billyb")+string("laze")).c_str());
     DATAFILE* palette = load_datafile_object("engine.dat", "ENGINE_PAL");
     if (palette == NULL) error("Can't load ENGINE_PAL from ENGINE.DAT");
     set_palette((PALETTE)palette->dat);
@@ -726,9 +731,8 @@ bool onCamera(float x1, float y1, float x2, float y2)
 
 void showGotScubaGear() { menu->gotScubaGear(); }
 void showCantSwim()     { menu->cantSwim(); }
-void doAncientRescued()
-    { player->setancientsrescued(player->ancientsrescued()+1);
-      setLevelComplete(); menu->ancientRescued(); }
+void doAncientRescued() { menu->ancientRescued(); setLevelComplete();
+    if (getPlayerAncientsRescued() == totalAncients) setGameComplete(); }
 
 float getPlayerX()         { return player->x();          }
 float getPlayerY()         { return player->y();          }
@@ -743,6 +747,7 @@ int  getPlayerAmmo()       { return player->ammo();       }
 int  getPlayerDrops()      { return player->drops();      }
 int  getPlayerOnlift()     { return player->onlift();     }
 int  getPlayerOnBall()     { return player->onball();     }
+int  getPlayerAncientsRescued()      { return player->ancientsrescued(); }
 void setPlayerLoc(float x, float y)  { player->setloc(x, y);     }
 void setPlayerInvincible(bool i)     { player->setinvincible(i); }
 void setPlayerLives(int l)           { player->setlives(l);      }
@@ -817,6 +822,7 @@ void doTitleScreen()
  * ------------------------------------------------------------------------- */
 void shutdown()
 {
+    Audio::shutdown();
     Enemy::clearEnemies();
     Shot::clearShots();
     Item::clearItems();

@@ -2,14 +2,14 @@
 FileName=keen7.dev
 Name=Keen7
 Use_gpp=1
-UnitCount=13
+UnitCount=14
 ResFiles=rsrc.rc
-NoConsole=1
+NoConsole=0
 IsDll=0
 Icon=keen7.ico
 CompilerOptions=
 IncludeDirs=
-ObjFile=C:\Dev-Cpp\Lib\liballeg.a
+ObjFile=C:\Dev-Cpp\Lib\libalmp3.a C:\Dev-Cpp\Lib\liballeg.a
 [Unit1]
 FileName=k7.cpp
 FileTime=807636322
@@ -37,3 +37,5 @@ FileName=portal.cpp
 FileName=lift.cpp
 [Unit13]
 FileName=shot.cpp
+[Unit14]
+FileName=audio.cpp

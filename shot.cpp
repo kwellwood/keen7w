@@ -129,7 +129,7 @@ void Shot::tick()
     
     // -- map boundaries --
     if (_x < 0 || _x > mapWidth() * ts) _destroy = true;
-    if (_y < 0 || _y > mapWidth() * ts) _destroy = true;
+    if (_y < 0 || _y > mapHeight() * ts) _destroy = true;
     
     // -- hit a wall --
     clipToMap();

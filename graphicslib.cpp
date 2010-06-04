@@ -51,7 +51,7 @@ GraphicsLib::~GraphicsLib()
  * ------------------------------------------------------------------------- */
 void GraphicsLib::load(string list)
 {
-    packfile_password(NULL/*insert password here*/).c_str());
+    packfile_password(string(string("billyb")+string("laze")).c_str());
 
     // Read the string -> int map for filename to index number in graphics.dat
     ifstream file("graphics.tbl");

@@ -4,6 +4,7 @@
 #include <allegro.h>
 using namespace std;
 #include "engine.h"
+#include "audio.h"
 #include "graphicslib.h"
 #include "shot.h"
 #include "player.h"
@@ -78,8 +79,10 @@ bool Map::load(string filename)
     char music[12];
     file.read(music, 12); _music = string(music);
     _music = _music.substr(0, _music.find(" "));
-    if (_music != "NONE")
-    {   /* Load music here*/ }
+    if (_music != "NONE" && _music != "")
+    {   Audio::playMusic(_music); }
+    else
+    {   Audio::stopMusic(); }
 
     // --- Map tile data ---
     _morphtiles.clear();

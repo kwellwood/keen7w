@@ -949,7 +949,8 @@ void Player::collideWithEnemies()
         (int)_clippoint[3].y, (int)_clippoint[10].x, (int)_clippoint[10].y);
 
     if (touchingEnemyType == DEADLYENEMY) kill();
-    else if (touchingEnemyType == ENDLEVELENEMY) doAncientRescued();
+    else if (touchingEnemyType == ENDLEVELENEMY)
+    {   _ancientsrescued++; doAncientRescued(); }
 }
 
 /* ------------------------------------------------------------------------- *

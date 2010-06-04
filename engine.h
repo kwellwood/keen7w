@@ -14,7 +14,6 @@
 // graphics mode
 #define WINDOWED      0
 #define FULLSCREEN    1
-//#define FORCEWINDOWED true
 
 // -- tile type --
 #define PASSIVE      0
@@ -172,6 +171,7 @@ int  getPlayerAmmo();
 int  getPlayerDrops();
 int  getPlayerOnlift();
 int  getPlayerOnBall();
+int  getPlayerAncientsRescued();
 void setPlayerLoc(float x, float y);
 void setPlayerInvincible(bool i);
 void setPlayerLives(int l);

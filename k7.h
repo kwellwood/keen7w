@@ -1,6 +1,7 @@
 #include <string>
 using namespace std;
 #include "engine.h"
+#include "audio.h"
 #include "graphicslib.h"
 #include "shot.h"
 #include "player.h"
@@ -32,6 +33,8 @@ vector<Lift> Lift::Lifts;                                          // lift.h
 vector<Lift::Locator> Lift::Locators[16];                          // lift.h
 int Shot::NextID;                                                  // shot.h
 vector<Shot*> Shot::Shots;                                         // shot.h
+bool Audio::Nosound;                                               // audio.h
+ALMP3_MP3* Audio::Music;                                           // audio.h
 
 bool   forcewindowed = false;
 string tileset;                 // name of file containing tile list
