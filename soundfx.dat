@@ -1,0 +1,44 @@
+21
+ENTERLEV_WAV
+EXITLEV_WAV
+DIE_WAV
+SHOOT_WAV
+NOAMMO_WAV
+SHOTHIT_WAV
+FOOTSTEP_WAV
+BUMPROOF_WAV
+JUMP_WAV
+LAND_WAV
+POGO_WAV
+FALL_WAV
+CANDY_WAV
+LIFEDROP_WAV
+PISTOL_WAV
+GEMKEY_WAV
+OPENDOOR_WAV
+SLUGPOOP_WAV
+MBOUNCE1_WAV
+MBOUNCE2_WAV
+BBOUNCE_WAV
+Slots:
+1 enter level
+2 exit level
+3 keen die
+4 shoot gun
+5 no ammo click
+6 shot collide
+7 footsteps
+8 bump ceiling
+9 jump
+10 land on ground
+11 pogo bounce
+12 fall
+13 collect candy
+14 collect lifedrop
+15 collect gun
+16 collect gemkey
+17 open gem door
+18 slug poop
+19 mushroom bounce 1
+20 mushroom bounce 2
+21 bounder bounce

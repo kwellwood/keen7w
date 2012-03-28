@@ -1,0 +1,21 @@
+1,2,3,4,5,8,10,18
+
+overhead - track01 [x]
+slugville - track05 [x]
+crystalus - track05 - track18 [x]
+hillville - track04 [x]
+bwb ship - track04 [x]
+cave descendants - track03 - track08 [x]
+pyramid moons - track03 [x]
+pyramid eye - track03 [-]
+pyramid sun - track03 [x]
+tar - track03 - track10 [x]
+sand yego - track02 [x]
+miragia - track02 - track10 [x]
+oasis - track02 [x]
+forbidden - track03 [-]
+well of wishes - track02 [-]
+chasm of chills - track03 [-]
+high scrores - track06 [-]
+
+try track12, track13, track22, track24, track26, track29
