@@ -13,7 +13,6 @@ TODO
 	ancients.dat -> ancients.cfg : menu.cpp
 [X] Remove capitalization from Keen7.exe filename
 [X] Create a TED makefile
-[ ] Fix engine.cfg references missing soundmp3.dat "soundset file"
 [ ] Restructure repository
 	/
 		allegro4/
