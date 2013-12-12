@@ -1,0 +1,41 @@
+TODO
+----
+[ ] Rename configuration files ending in .dat
+	soundfx.dat -> sounds.cfg : audio.cpp
+	tileset.dat -> tiles.cfg : engine.cfg
+	scoreboard.dat -> scoreboard.cfg : scoreboard.cpp
+	player.dat -> player.cfg : player.cpp
+	overheadmap.dat -> overheadmap.cfg : k7.cpp
+	menu.dat -> menu.cfg : menu.cpp
+	lifts.dat -> lifts.cfg : lift.cpp
+	levels.dat -> levels.cfg : k7.cpp, menu.cpp
+	enemies.dat -> enemies.cfg : enemy.cpp
+	ancients.dat -> ancients.cfg : menu.cpp
+[ ] Fix engine.cfg references missing soundmp3.dat "soundset file"
+[ ] Restructure repository
+	/
+		allegro4/
+		almp3/
+		bin/
+			graphics/
+			levels/
+			music/
+			soundfx/
+			ted/
+			grabber42.exe
+			Keen7.exe
+		docs/
+		obj/
+		res/
+		src/
+		makefiles
+		installer script
+
+	[ ] Unpack bmp.zip into bin/graphics
+	[ ] Fixup makefile
+	[ ] Fixup installer script
+[ ] Remove capitalization from Keen7.exe filename
+[ ] Create a TED makefile
+[ ] Upgrade to Allegro 4.4.3 (with gcw0 support)
+[ ] Fix graphics mode to stop disabling Windows Aero
+[ ] Refactor code
