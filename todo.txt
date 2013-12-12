@@ -12,6 +12,7 @@ TODO
 	enemies.dat -> enemies.cfg : enemy.cpp
 	ancients.dat -> ancients.cfg : menu.cpp
 [X] Remove capitalization from Keen7.exe filename
+[X] Create a TED makefile
 [ ] Fix engine.cfg references missing soundmp3.dat "soundset file"
 [ ] Restructure repository
 	/
@@ -35,7 +36,6 @@ TODO
 	[ ] Unpack bmp.zip into bin/graphics
 	[ ] Fixup makefile
 	[ ] Fixup installer script
-[ ] Create a TED makefile
 [ ] Upgrade to Allegro 4.4.3 (with gcw0 support)
 [ ] Fix graphics mode to stop disabling Windows Aero
 [ ] Refactor code

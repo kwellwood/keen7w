@@ -71,8 +71,11 @@ bool   quitgame;
 int  mousX, mousY;
 bool mousLB, mousRB;
 
-struct { int tile, layer, matrix, item, enemy, lifttrack, portal, mode, dir;
-         bool gridsnap, darkenbg; } drawinfo;
+struct DrawInfo {
+    int tile, layer, matrix, item, enemy, lifttrack, portal, mode, dir;
+    bool gridsnap, darkenbg;
+};
+DrawInfo drawinfo;
 
 // Various and sundry timers
 struct Timer { long ticks; bool flag; } timer[3];
