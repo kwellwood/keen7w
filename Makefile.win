@@ -11,7 +11,7 @@ LINKOBJ  = obj/k7.o obj/graphicslib.o obj/map.o obj/player.o obj/menu.o obj/came
 LIBS =  -L"allegro4/lib" -L"almp3/src/lib" -mwindows -lalmp3 -lalleg -s 
 INCS = 
 CXXINCS =  -I"allegro4/include" -I"almp3/src/include"
-BIN  = Keen7.exe
+BIN  = keen7.exe
 CXXFLAGS = $(CXXINCS) -D__GTHREAD_HIDE_WIN32API   -fexpensive-optimizations -O1
 CFLAGS = $(INCS)    -fexpensive-optimizations -O1
 RM = del
@@ -19,7 +19,7 @@ MAKE = make
 
 .PHONY: all all-before all-after clean clean-custom
 
-all: all-before Keen7.exe all-after
+all: all-before keen7.exe all-after
 
 clean: clean-custom
 	-$(RM) $(OBJ) $(BIN)
@@ -28,7 +28,7 @@ clean-custom:
 	$(MAKE) -C almp3 clean
 
 $(BIN): $(OBJ) $(ALMP3_LIB)
-	$(CPP) $(LINKOBJ) -o "Keen7.exe" $(LIBS)
+	$(CPP) $(LINKOBJ) -o "keen7.exe" $(LIBS)
 
 obj/k7.o: src/k7.cpp
 	$(CPP) -c src/k7.cpp -o obj/k7.o $(CXXFLAGS)
