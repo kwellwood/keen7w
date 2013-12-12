@@ -1,0 +1,13 @@
+[x] Save and Load enemy directions
+[x] When adding ancients by cheats, end game when reached number_of_ancients
+[x] Render the invisible tiles in TED (exits etc)
+[  ] Add my levels (chasm of chills, isle of fire?, wishing well, forbidden temple)
+     - dopefish graphics
+     - seaweed graphics
+     - hazzard water tiles
+[  ] Change totalAncients in k7.h appropriately
+[  ] Recompile keen7 and ted
+[  ] Create html source files
+[  ] Package all files
+    -    include allegro grabber utility
+[  ] Test installer
