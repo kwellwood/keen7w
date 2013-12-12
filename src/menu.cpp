@@ -220,8 +220,8 @@ void Menu::saveGame(int slot)
     writeInt(file, moveMode());
     
     // --- Write completed levels ---
-    ifstream file2("LEVELS.DAT");
-    if (!file2.is_open()) error("Can't open file LEVELS.DAT");
+    ifstream file2("levels.cfg");
+    if (!file2.is_open()) error("Can't open file levels.cfg");
     int numlevels; file2 >> numlevels; file2.close();
     writeInt(file, numlevels);
     for (int i=1; i<=numlevels; i++)
@@ -364,8 +364,8 @@ void Menu::drawLoadingBox(int level)
     // --- Get the text for entering a level ---
     char temp[256];
     string entermaptext;
-    ifstream file("LEVELS.DAT");
-    if (!file.is_open()) error("Can't open file LEVELS.DAT");
+    ifstream file("levels.cfg");
+    if (!file.is_open()) error("Can't open file levels.cfg");
     file.getline(temp, 256);
     for (int i=1; i<= level; i++)
     {   file.getline(temp, 256);
@@ -582,8 +582,8 @@ void Menu::helpMenu()
  * ------------------------------------------------------------------------- */
 void Menu::ancientRescued()
 {
-    ifstream file("ANCIENTS.DAT");
-    if (!file.is_open()) error("Can't open file ANCIENTS.DAT");
+    ifstream file("ancients.cfg");
+    if (!file.is_open()) error("Can't open file ancients.cfg");
     char temp[256];
     file.getline(temp, 256); string ancientspeech(temp);
     for (int i=0; i<getPlayerAncientsrescued(); i++) file.getline(temp,256);
@@ -763,11 +763,11 @@ string Menu::getTextInput(int x, int y, int c, int maxchars, int pixwidth)
 void Menu::init()
 {
     int tmp;
-    ifstream file("MENU.DAT");
-    if (!file.is_open()) error("Can't open file MENU.DAT");
+    ifstream file("menu.cfg");
+    if (!file.is_open()) error("Can't open file menu.cfg");
     file >> tmp;
     if (tmp != MENU_VERSION)
-    {   file.close(); error("Invalid version of MENU.DAT"); }
+    {   file.close(); error("Invalid version of menu.cfg"); }
     file >> _menutile;
     file >> _selectorstartfrm;
     file >> _selectorframes;

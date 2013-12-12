@@ -9,12 +9,12 @@ using namespace std;
 /* ------------------------------------------------------------------------- *
  * void init()                                                               *
  *                                                                           *
- * Initialize the lift system by loading lifts.dat                           *
+ * Initialize the lift system by loading lifts.cfg                           *
  * ------------------------------------------------------------------------- */
 void Lift::init()
 {
-    ifstream file("LIFTS.DAT");
-    if (!file.is_open()) error("Can't open file LIFTS.DAT");
+    ifstream file("lifts.cfg");
+    if (!file.is_open()) error("Can't open file lifts.cfg");
     file >> Liftstoptile;
     file >> Liftlefttile;
     file >> Liftrighttile;

@@ -194,8 +194,8 @@ void loadLevel(int level)
 {
     char temp[256];
     string mapfile;
-    ifstream file("LEVELS.DAT");
-    if (!file.is_open()) error("Can't open file LEVELS.DAT");
+    ifstream file("levels.cfg");
+    if (!file.is_open()) error("Can't open file levels.cfg");
     file.getline(temp, 256);
     for (int i=1; i<= level; i++)
     {
@@ -245,15 +245,15 @@ void startLevel(int level)
  * string levelName(int level)                                               *
  *   level: level number                                                     *
  *                                                                           *
- * Reads and returns the name of the requested level from LEVELS.DAT. If     *
+ * Reads and returns the name of the requested level from levels.cfg. If     *
  * no level number is given, the name of the current level is returned.      * 
  * ------------------------------------------------------------------------- */
 string levelName(int level)
 {
     char temp[256];
     string name;
-    ifstream file("LEVELS.DAT");
-    if (!file.is_open()) error("Can't open file LEVELS.DAT");
+    ifstream file("levels.cfg");
+    if (!file.is_open()) error("Can't open file levels.cfg");
     file.getline(temp, 256);
     for (int i=1; i<= level; i++)
     {
@@ -543,8 +543,8 @@ void endLevel(bool successful)
 void prepareOverheadMap()
 {
     int numlev;
-    ifstream file("overheadmap.dat");
-    if (!file.is_open()) error("Can't open file OVERHEADMAP.DAT");
+    ifstream file("overheadmap.cfg");
+    if (!file.is_open()) error("Can't open file overheadmap.cfg");
     file >> numlev;
     for (int i=1; i<=numlev; i++)
     {   int flagx=0, flagy=0, numtiles=0;
@@ -680,9 +680,9 @@ void initEngine()
     file.close();
 
     // --- Create array to store completed levels ---
-    file.open("LEVELS.DAT");
+    file.open("levels.cfg");
     if (!file.is_open())
-    {   error("Can't open file LEVELS.DAT"); }
+    {   error("Can't open file levels.cfg"); }
     file >> tmp;
     file.close();
     levelsComplete = new bool[tmp+1];
@@ -692,13 +692,13 @@ void initEngine()
     // --- Load the color palette ---
     packfile_password("billyblaze");
     DATAFILE* palette = load_datafile_object("engine.dat", "ENGINE_PAL");
-    if (palette == NULL) error("Can't load ENGINE_PAL from ENGINE.DAT");
+    if (palette == NULL) error("Can't load ENGINE_PAL from engine.dat");
     set_palette((RGB*)palette->dat);
     unload_datafile_object(palette);
 
     // --- Load the font ---
     DATAFILE* fnt = load_datafile_object("engine.dat", "ENGINE_FONT");
-    if (fnt == NULL) error("Can't load ENGINE_FONT from ENGINE.DAT");
+    if (fnt == NULL) error("Can't load ENGINE_FONT from engine.dat");
     font = (FONT*)fnt->dat;
     packfile_password(NULL);
 
@@ -746,7 +746,7 @@ void setQuitGame()       { quitgame = true; }
 void setLevel(int l)     { curlevel = l; }
 int  getLevel()          { return curlevel; }
 void clearLevelsComplete()
-{   ifstream file("LEVELS.DAT"); int numlev; file >> numlev; file.close();
+{   ifstream file("levels.cfg"); int numlev; file >> numlev; file.close();
     for (int i=0; i<=numlev; i++) levelsComplete[i] = false; }
 int  getLevelComplete(int level) { return levelsComplete[level]; }
 int  getTextLen(string str) { return text_length(font, str.c_str()); }

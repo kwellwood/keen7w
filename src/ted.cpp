@@ -753,7 +753,7 @@ void initEngine()
     // --- Load the color palette ---
     packfile_password("billyblaze");
     DATAFILE* pal = load_datafile_object("engine.dat", "ENGINE_PAL");
-    if (pal == NULL) error("Can't load ENGINE_PAL from ENGINE.DAT");
+    if (pal == NULL) error("Can't load ENGINE_PAL from engine.dat");
     set_palette((RGB*)pal->dat);
     // create the transparency table
     create_trans_table(&transtable, (RGB*)pal->dat, 128, 128, 128, NULL);
@@ -764,7 +764,7 @@ void initEngine()
     // --- Load the font ---
     text_mode(-1);                  // draw text transparently
     DATAFILE* fnt = load_datafile_object("engine.dat", "ENGINE_FONT");
-    if (fnt == NULL) error("Can't load ENGINE_FONT from ENGINE.DAT");
+    if (fnt == NULL) error("Can't load ENGINE_FONT from engine.dat");
     font = (FONT*)fnt->dat;
     packfile_password(NULL);
 

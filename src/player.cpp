@@ -17,7 +17,7 @@ using namespace std;
 /* ------------------------------------------------------------------------- *
  * Player()                                                                  *
  *                                                                           *
- * Constructor- initializes the data members and loads PLAYER.DAT.           *
+ * Constructor- initializes the data members and loads player.cfg.           *
  * ------------------------------------------------------------------------- */
 Player::Player()         // Initialize all data members
 :_x(0),_y(0),_mapx(0),_mapy(0),_xv(0),_yv(0),_xmax(0),_ymax(0),_xdir(0),
@@ -30,9 +30,9 @@ Player::Player()         // Initialize all data members
  _invincible(false),_jumpcheat(false),_usingportal(-1),_holdingjump(false),
  _stoppedjump(false),_dead(false),_ancientsrescued(0)
 {
-    ifstream file("PLAYER.DAT");
+    ifstream file("player.cfg");
     if (!file.is_open())
-    {   error("Can't open file PLAYER.DAT"); }
+    {   error("Can't open file player.cfg"); }
     file >> _adelay;                            // animation speed
     for (int f=0; f<=MAXPLAYERFRAMES; f++)
     {

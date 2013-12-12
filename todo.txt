@@ -1,8 +1,8 @@
 TODO
 ----
-[ ] Rename configuration files ending in .dat
-	soundfx.dat -> sounds.cfg : audio.cpp
+[X] Rename configuration files ending in .dat
 	tileset.dat -> tiles.cfg : engine.cfg
+	soundfx.dat -> sounds.cfg : audio.cpp
 	scoreboard.dat -> scoreboard.cfg : scoreboard.cpp
 	player.dat -> player.cfg : player.cpp
 	overheadmap.dat -> overheadmap.cfg : k7.cpp

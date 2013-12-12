@@ -9,14 +9,14 @@ using namespace std;
 /* ------------------------------------------------------------------------- *
  * static void init()                                                        *
  *                                                                           *
- * Initialize the enemy system by reading enemy frames from ENEMIES.DAT      *
+ * Initialize the enemy system by reading enemy frames from enemies.cfg      *
  * ------------------------------------------------------------------------- */
 void Enemy::init()
 {
     clearEnemies();
-    ifstream file("ENEMIES.DAT");
+    ifstream file("enemies.cfg");
     if (!file.is_open())
-    {   error("Can't open file ENEMIES.DAT"); }
+    {   error("Can't open file enemies.cfg"); }
     for (int f=0; f<=MAXENEMYFRAMES; f++)
     {
         file >> SpriteFrame[f].tile;            // frame's tile number

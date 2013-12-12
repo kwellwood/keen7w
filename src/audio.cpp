@@ -19,7 +19,7 @@ void Audio::init()
     
     // Read the string -> int map for filename to index number in sounds.dat
     ifstream tblfile("sounds.tbl");
-    if (!tblfile.is_open()) error("Can't open file SOUNDS.TBL");
+    if (!tblfile.is_open()) error("Can't open file sounds.tbl");
     map<string, int> fileindex;
     while (!tblfile.eof())
     {   string filename; int indexnum;
@@ -30,13 +30,13 @@ void Audio::init()
     
     // --- Load the sounds datafile into memory ---
     packfile_password(string(string("bil")+string("lyblaze")).c_str());
-    DATAFILE* datafile = load_datafile("SOUNDS.DAT");
-    if (datafile == NULL) error("Can't open file SOUNDS.DAT");
+    DATAFILE* datafile = load_datafile("sounds.dat");
+    if (datafile == NULL) error("Can't open file sounds.dat");
     packfile_password(NULL);
     
-    // Load sounds as listed in soundfx.dat
-    ifstream file("SOUNDFX.DAT");
-    if (!file.is_open()) error("Can't open file SOUNDFX.DAT");
+    // Load sounds as listed in sounds.cfg
+    ifstream file("sounds.cfg");
+    if (!file.is_open()) error("Can't open file sounds.cfg");
     int numsounds;
     file >> numsounds;
     for (int i=0; i<numsounds; i++)
@@ -46,13 +46,13 @@ void Audio::init()
         file >> filename;
 
         if (fileindex.find(filename) == fileindex.end())
-        {   error("Can't open file "+filename+" in SOUNDS.DAT"); }
+        {   error("Can't open file "+filename+" in sounds.dat"); }
         snd.samp = (SAMPLE*)datafile[fileindex[filename]].dat;
         SoundFX.push_back(snd);
     }
     file.close();
     
-    ifstream cfgfile("AUDIO.CFG", ios::in|ios::binary);
+    ifstream cfgfile("audio.cfg", ios::in|ios::binary);
     if (cfgfile.is_open())
     {   SoundfxVol = readInt(cfgfile);
         MusicVol = readInt(cfgfile);
@@ -82,7 +82,7 @@ bool Audio::loadMusic(string filename)
     
     // --- Load data ---
     packfile_password(string(string("billybl")+string("aze")).c_str());
-    MusicData = load_datafile_object("MUSIC.DAT", filename.c_str());
+    MusicData = load_datafile_object("music.dat", filename.c_str());
     packfile_password(NULL);
     if (MusicData == NULL)
     {   Music = NULL; return false; }
@@ -195,7 +195,7 @@ void Audio::shutdown()
     SoundFX.clear();
     
     // --- Save volume levels ---
-    ofstream file("AUDIO.CFG", ios::out|ios::binary|ios::trunc);
+    ofstream file("audio.cfg", ios::out|ios::binary|ios::trunc);
     writeInt(file, SoundfxVol);
     writeInt(file, MusicVol);
     file.close();

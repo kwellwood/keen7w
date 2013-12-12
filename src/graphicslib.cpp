@@ -55,7 +55,7 @@ void GraphicsLib::load(string list)
 
     // Read the string -> int map for filename to index number in graphics.dat
     ifstream file("graphics.tbl");
-    if (!file.is_open()) { setError("Can't open file GRAPHICS.TBL"); return; }
+    if (!file.is_open()) { setError("Can't open file graphics.tbl"); return; }
     map<string, int> fileindex;
     while (!file.eof())
     {   string filename; int indexnum;
@@ -64,8 +64,8 @@ void GraphicsLib::load(string list)
     }
     
     // Load the entire graphics file into memory
-    DATAFILE* datafile = load_datafile("GRAPHICS.DAT");
-    if (datafile == NULL) { setError("Can't open file GRAPHICS.DAT"); return; }
+    DATAFILE* datafile = load_datafile("graphics.dat");
+    if (datafile == NULL) { setError("Can't open file graphics.dat"); return; }
 
     // Open the tiles list file
     ifstream listFile(list.c_str());
@@ -89,7 +89,7 @@ void GraphicsLib::load(string list)
         {
             // Load bitmap
             if (fileindex.find(picfile) == fileindex.end())
-            {   setError("Can't open file "+picfile+" in GRAPHICS.DAT");
+            {   setError("Can't open file "+picfile+" in graphics.dat");
                 return; }
             _tiles.push_back((BITMAP*)datafile[fileindex[picfile]].dat);
 

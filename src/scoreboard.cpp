@@ -158,8 +158,8 @@ void Scoreboard::drawNumber(int digits, int x, int y, int n)
  * ------------------------------------------------------------------------- */
 void Scoreboard::init()
 {
-    ifstream file("SCOREBOARD.DAT");
-    if (!file.is_open()) error("Can't open file SCOREBOARD.DAT");
+    ifstream file("scoreboard.cfg");
+    if (!file.is_open()) error("Can't open file scoreboard.cfg");
     
     file >> _scoreboardtile;
     file >> _scoredigit;
