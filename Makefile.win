@@ -3,27 +3,31 @@
 
 CPP  = g++.exe
 CC   = gcc.exe
-WINDRES = windres.exe
-RES  = obj/Keen7_private.res
-OBJ  = obj/k7.o obj/graphicslib.o obj/map.o obj/player.o obj/menu.o obj/camera.o obj/scoreboard.o obj/item.o obj/sprite.o obj/enemy.o obj/portal.o obj/lift.o obj/shot.o obj/audio.o $(RES)
-LINKOBJ  = obj/k7.o obj/graphicslib.o obj/map.o obj/player.o obj/menu.o obj/camera.o obj/scoreboard.o obj/item.o obj/sprite.o obj/enemy.o obj/portal.o obj/lift.o obj/shot.o obj/audio.o $(RES)
-LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lalmp3 -lalleg  -s 
+#WINDRES = windres.exe
+#RES  = obj/Keen7_private.res
+OBJ  = obj/k7.o obj/graphicslib.o obj/map.o obj/player.o obj/menu.o obj/camera.o obj/scoreboard.o obj/item.o obj/sprite.o obj/enemy.o obj/portal.o obj/lift.o obj/shot.o obj/audio.o #$(RES)
+ALMP3_LIB = almp3/src/lib/libalmp3.a
+LINKOBJ  = obj/k7.o obj/graphicslib.o obj/map.o obj/player.o obj/menu.o obj/camera.o obj/scoreboard.o obj/item.o obj/sprite.o obj/enemy.o obj/portal.o obj/lift.o obj/shot.o obj/audio.o #$(RES)
+LIBS =  -L"allegro4/lib" -L"almp3/src/lib" -mwindows -lalmp3 -lalleg -s 
 INCS = 
-CXXINCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"allegro4/include" -I"almp3/src/include"
 BIN  = Keen7.exe
 CXXFLAGS = $(CXXINCS) -D__GTHREAD_HIDE_WIN32API   -fexpensive-optimizations -O1
 CFLAGS = $(INCS)    -fexpensive-optimizations -O1
-RM = rm -f
+RM = del
+MAKE = make
 
 .PHONY: all all-before all-after clean clean-custom
 
 all: all-before Keen7.exe all-after
 
-
 clean: clean-custom
-	${RM} $(OBJ) $(BIN)
+	-$(RM) $(OBJ) $(BIN)
 
-$(BIN): $(OBJ)
+clean-custom:
+	$(MAKE) -C almp3 clean
+
+$(BIN): $(OBJ) $(ALMP3_LIB)
 	$(CPP) $(LINKOBJ) -o "Keen7.exe" $(LIBS)
 
 obj/k7.o: src/k7.cpp
@@ -68,5 +72,8 @@ obj/shot.o: src/shot.cpp
 obj/audio.o: src/audio.cpp
 	$(CPP) -c src/audio.cpp -o obj/audio.o $(CXXFLAGS)
 
-obj/Keen7_private.res: Keen7_private.rc 
-	$(WINDRES) -i Keen7_private.rc --input-format=rc -o obj/Keen7_private.res -O coff 
+#obj/Keen7_private.res: Keen7_private.rc 
+#	$(WINDRES) -i Keen7_private.rc --input-format=rc -o obj/Keen7_private.res -O coff 
+
+$(ALMP3_LIB):
+	$(MAKE) -C almp3

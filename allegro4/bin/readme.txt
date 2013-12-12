@@ -1,0 +1,1 @@
+Allegro 4.2.2 prebuilt binaries for MinGW

@@ -1,0 +1,9 @@
+PKG=BCalmp3
+NAME=AllegroMP3 - mp3 decoder library for Allegro
+DESC=AllegroMP3 is an Allegro wrapper for the mpglib MP3 decoder part of mpg123.
+BASEDIR=/opt/BCallegro
+CATEGORY=system
+ARCH=i386
+VERSION=2.0.4
+VENDOR=Javier Gonzalez
+EMAIL=binarycrusader@gmail.com

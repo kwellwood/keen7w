@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE attributes PUBLIC "-//NetBeans//DTD DefaultAttributes 1.0//EN" "http://www.netbeans.org/dtds/attributes-1_0.dtd">
+<attributes version="1.0">
+    <fileobject name="Makefile">
+        <attr name="makeTargets" stringvalue=""/>
+        <attr name="MAKEFILE_TYPE" serialvalue="aced0005737200326f72672e6f70656e6964652e66696c6573797374656d732e416273747261637446696c654f626a656374245265706c616365896fa1bce4b5219f0200024c000866696c654e616d657400124c6a6176612f6c616e672f537472696e673b4c000666734e616d6571007e0001787074000e616c6d70332f4d616b6566696c657400132f686f6d652f7377616c6b65722f646576656c"/>
+        <attr name="makeCommand" stringvalue="dmake -m serial"/>
+        <attr name="makeOptions" stringvalue=""/>
+        <attr name="buildDirectory" stringvalue="."/>
+    </fileobject>
+</attributes>
