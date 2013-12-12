@@ -1,0 +1,4 @@
+syntax: glob
+obj/*.o
+almp3/src/obj/mingw32/static/*.o
+almp3/src/lib/*.a
