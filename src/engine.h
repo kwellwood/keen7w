@@ -172,7 +172,7 @@ int  getSlopeHeight(int x, int y, int l);
 int  mapHitPoint(float x, float y);
 bool getSwitch(int s);
 void setMap(int x, int y, int t);
-void setMapFG(int x, int y, int y);
+void setMapFG(int x, int y, int t);
 void setSwitchTag(int x, int y, int sw);
 void setSwitch(int s, bool v);
 void mapToggleBridge(int loc);

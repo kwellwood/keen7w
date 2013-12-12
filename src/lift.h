@@ -30,7 +30,7 @@ class Lift
     void draw(float zoom, int vpx, int vpy);    // only for TEDLift class
 
     protected:
-    static string Lift::toStr(int n);
+    static string toStr(int n);
 
     class Locator
     {
