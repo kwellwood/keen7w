@@ -3,6 +3,9 @@ using namespace std;
 #include "engine.h"
 #include "portal.h"
 
+int Portal::NextID = 0;
+vector<Portal> Portal::Portals;
+
 /* ------------------------------------------------------------------------- *
  * void addPortal(int x, int y, int destx, int desty)                        *
  *   x,y: teleporter location                                                *

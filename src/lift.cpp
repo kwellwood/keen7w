@@ -6,6 +6,16 @@ using namespace std;
 #include "engine.h"
 #include "lift.h"
 
+int Lift::NextID = 0;
+int Lift::Locator::NextID = 0;
+int Lift::Liftstoptile;
+int Lift::Liftlefttile;
+int Lift::Liftrighttile;
+int Lift::Liftuptile;
+int Lift::Liftdowntile;
+vector<Lift> Lift::Lifts;
+vector<Lift::Locator> Lift::Locators[16];
+
 /* ------------------------------------------------------------------------- *
  * void init()                                                               *
  *                                                                           *

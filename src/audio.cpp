@@ -5,6 +5,13 @@ using namespace std;
 #include "engine.h"
 #include "audio.h"
 
+bool Audio::Nosound = false;
+int Audio::MusicVol = 255;
+int Audio::SoundfxVol = 255;
+ALMP3_MP3* Audio::Music = NULL;
+DATAFILE* Audio::MusicData = NULL;
+vector<SoundData> Audio::SoundFX;
+
 /* ------------------------------------------------------------------------- *
  * static void init()                                                        *
  *                                                                           *

@@ -4,6 +4,9 @@ using namespace std;
 #include "engine.h"
 #include "sprite.h"
 
+vector<Sprite*> Sprite::Sprites;
+int Sprite::NextID = 0;
+
 /* ------------------------------------------------------------------------- *
  * static void addSprite(...)                                                *
  *   x,y   : location of sprite (in pixels)                                  *

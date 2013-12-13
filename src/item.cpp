@@ -7,6 +7,8 @@ using namespace std;
 #include "sprite.h"
 #include "item.h"
 
+vector<Item*> Item::Items;
+
 /* ------------------------------------------------------------------------- *
  * static void addItem(Item itm)                                             *
  *                                                                           *

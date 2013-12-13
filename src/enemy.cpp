@@ -6,6 +6,11 @@ using namespace std;
 #include "sprite.h"
 #include "enemy.h"
 
+float Enemy::Friction = 0.0;
+int Enemy::NextID = 0;
+vector<Enemy*> Enemy::Enemies;
+enemyspriteframe Enemy::SpriteFrame[MAXENEMYFRAMES+1];
+
 /* ------------------------------------------------------------------------- *
  * static void init()                                                        *
  *                                                                           *

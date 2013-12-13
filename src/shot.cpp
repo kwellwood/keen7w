@@ -5,6 +5,9 @@ using namespace std;
 #include "sprite.h"
 #include "shot.h"
 
+int Shot::NextID = 0;
+vector<Shot*> Shot::Shots;
+
 /* ------------------------------------------------------------------------- *
  * static void addShot(Shot* shot)                                           *
  *   shot: new shot object                                                   *

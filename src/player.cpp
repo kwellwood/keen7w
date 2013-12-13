@@ -14,6 +14,9 @@ using namespace std;
 #include "lift.h"
 #include "enemy.h"
 
+float Player::Friction = 0.0;
+float Player::Gravity = 0.0;
+
 /* ------------------------------------------------------------------------- *
  * Player()                                                                  *
  *                                                                           *
