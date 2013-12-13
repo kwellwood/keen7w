@@ -1,20 +1,11 @@
 #include <string>
 using namespace std;
-#include "engine.h"
-#include "audio.h"
 #include "graphicslib.h"
-#include "shot.h"
 #include "player.h"
 #include "map.h"
 #include "camera.h"
 #include "menu.h"
 #include "scoreboard.h"
-#include "sprite.h"
-#include "item.h"
-#include "enemy.h"
-#include "portal.h"
-#include "lift.h"
-#include "coredata.h"
 
 bool   forcewindowed = false;
 string tileset;                 // name of file containing tile list

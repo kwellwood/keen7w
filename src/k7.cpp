@@ -5,6 +5,13 @@
 #include <almp3.h>
 using namespace std;
 #include "k7.h"
+#include "audio.h"
+#include "lift.h"
+#include "enemy.h"
+#include "item.h"
+#include "portal.h"
+#include "sprite.h"
+#include "shot.h"
 
 /* to do now:
 [ ] build Keen7 with warnings enabled

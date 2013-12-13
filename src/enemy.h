@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 using namespace std;
+#include "engine.h"
 
 #define MAXENEMYFRAMES 68
 
