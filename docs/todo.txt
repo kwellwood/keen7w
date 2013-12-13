@@ -1,40 +1,7 @@
 TODO
 ----
-[X] Rename configuration files ending in .dat
-	tileset.dat -> tiles.cfg : engine.cfg
-	soundfx.dat -> sounds.cfg : audio.cpp
-	scoreboard.dat -> scoreboard.cfg : scoreboard.cpp
-	player.dat -> player.cfg : player.cpp
-	overheadmap.dat -> overheadmap.cfg : k7.cpp
-	menu.dat -> menu.cfg : menu.cpp
-	lifts.dat -> lifts.cfg : lift.cpp
-	levels.dat -> levels.cfg : k7.cpp, menu.cpp
-	enemies.dat -> enemies.cfg : enemy.cpp
-	ancients.dat -> ancients.cfg : menu.cpp
-[X] Remove capitalization from Keen7.exe filename
-[X] Create a TED makefile
-[X] Restructure repository
-	/
-		allegro4/
-		almp3/
-		bin/
-			graphics/
-			levels/
-			music/
-			sounds/
-			ted/
-			grabber42.exe
-			keen7.exe
-		docs/
-		obj/
-		res/
-		src/
-		makefiles
-		installer script
-
-	[ ] Unpack bmp.zip into bin/graphics
-	[X] Fixup makefile
-	[ ] Fixup installer script
+[ ] Change bit depth to 32
+    [ ] Fix transparency on all graphics images
+[ ] Fixup installer script
 [ ] Upgrade to Allegro 4.4.3 (with gcw0 support)
-[ ] Fix graphics mode to stop disabling Windows Aero
 [ ] Refactor code
