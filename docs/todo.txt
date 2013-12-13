@@ -13,7 +13,7 @@ TODO
 	ancients.dat -> ancients.cfg : menu.cpp
 [X] Remove capitalization from Keen7.exe filename
 [X] Create a TED makefile
-[ ] Restructure repository
+[X] Restructure repository
 	/
 		allegro4/
 		almp3/
@@ -21,10 +21,10 @@ TODO
 			graphics/
 			levels/
 			music/
-			soundfx/
+			sounds/
 			ted/
 			grabber42.exe
-			Keen7.exe
+			keen7.exe
 		docs/
 		obj/
 		res/
@@ -33,7 +33,7 @@ TODO
 		installer script
 
 	[ ] Unpack bmp.zip into bin/graphics
-	[ ] Fixup makefile
+	[X] Fixup makefile
 	[ ] Fixup installer script
 [ ] Upgrade to Allegro 4.4.3 (with gcw0 support)
 [ ] Fix graphics mode to stop disabling Windows Aero

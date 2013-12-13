@@ -19,18 +19,18 @@ CXXFLAGS = $(CXXINCS) -D__GTHREAD_HIDE_WIN32API -fexpensive-optimizations -O1
 .PHONY: all clean prebuild keen ted
 .SECONDARY: $(OBJ)
 
-keen: keen7.exe
-ted: ted.exe
-all: keen7.exe ted.exe
+keen: bin/keen7.exe
+ted: bin/ted.exe
+all: keen ted
 
 clean:
-	-$(RM) $(KEEN_OBJ) $(TED_OBJ) keen7.exe ted.exe
+	-$(RM) $(KEEN_OBJ) $(TED_OBJ) bin/keen7.exe bin/ted.exe
 	$(MAKE) -C almp3 clean
 
-keen7.exe: prebuild $(KEEN_OBJ) $(ALMP3)
+bin/keen7.exe: prebuild $(KEEN_OBJ) $(ALMP3)
 	$(CPP) $(KEEN_OBJ) -o "$@" $(LIBS)
 
-ted.exe: prebuild $(TED_OBJ) $(ALMP3)
+bin/ted.exe: prebuild $(TED_OBJ) $(ALMP3)
 	$(CPP) $(TED_OBJ) -o "$@" $(LIBS)
 
 obj/%.o: src/%.cpp
