@@ -20,15 +20,19 @@ ifeq ($(OSTYPE), darwin)
     IS_WIN   :=
     IS_OSX   := True
     EXT      :=
-	MAKE     := make
 else
     OS       := Windows_NT
     SHORT_OS := win
     IS_WIN   := True
     IS_OSX   :=
     EXT      := .exe
-	MAKE     := mingw32-make.exe
 endif
+
+#
+# Tools
+#
+
+MAKE := make
 
 #
 # Functions
