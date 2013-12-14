@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <unistd.h>
 #include <math.h>
 #include <allegro.h>
 #include <almp3.h>
@@ -19,7 +20,7 @@ void main(int argc, char *argv[])
     for (int i=1; i<argc; i++)
     {   if (strcmp(argv[i], "-windowed") == 0) forcewindowed = true;
     }
-    //forcewindowed = true;
+    forcewindowed = true;
     
     // --- Initialize Allegro ---
     allegro_init();
@@ -72,6 +73,8 @@ void mainloop()
             camera->tick();
             drawScreen();
         }
+
+        usleep(1000);
     } while (!quitgame);
 }
 
@@ -720,16 +723,16 @@ void initEngine()
     player = new Player();
     camera = new TEDCamera(player);
 
-    // --- Read ENGINE.CFG ---
+    // --- Read engine.cfg ---
     int      tmp;
     float    tmpf;
     string   tmpstr;
-    ifstream file("ENGINE.CFG");
+    ifstream file("engine.cfg");
     if (!file.is_open())
-    {   error("Can't open file ENGINE.CFG"); }
+    {   error("Can't open file engine.cfg"); }
     file >> tmp;
     if (tmp != ENGINE_VERSION)
-    {   file.close(); error("Invalid version of ENGINE.CFG"); }
+    {   file.close(); error("Invalid version of engine.cfg"); }
     file >> tmpf; Player::Friction = tmpf; Enemy::Friction = tmpf;
     file >> tmpf; Player::Gravity = tmpf;
     file >> tileset;
@@ -919,11 +922,11 @@ bool mouseIn(int area[])
     mousY <= area[3]; }
 void waitForLB()
 {   while (mouse_b & 1)
-    {   trackMouse(); if (timerTicked(FRAMETIMER)) blitToScreen(); }
+    {   trackMouse(); if (timerTicked(FRAMETIMER)) blitToScreen(); usleep(1000); }
 }
 void waitForRB()
 {   while (mouse_b & 2) 
-    {   trackMouse(); if (timerTicked(FRAMETIMER)) blitToScreen(); }
+    {   trackMouse(); if (timerTicked(FRAMETIMER)) blitToScreen(); usleep(1000); }
 }
 
 int    getNumTiles()    { return tilelib->size();       }
@@ -1109,11 +1112,11 @@ void breakUpText(string text, string &line1, string &line2, int maxlen)
 void waitForKey()
 {
     while(key[KEY_ENTER] || key[KEY_SPACE] || key[KEY_LCONTROL] ||
-          key[KEY_RCONTROL]);
+          key[KEY_RCONTROL]) { usleep(1000); }
     while(!key[KEY_ENTER] && !key[KEY_SPACE] && !key[KEY_LCONTROL] &&
-          !key[KEY_RCONTROL]);
+          !key[KEY_RCONTROL]) { usleep(1000); }
     while(key[KEY_ENTER] || key[KEY_SPACE] || key[KEY_LCONTROL] ||
-          key[KEY_RCONTROL]);
+          key[KEY_RCONTROL]) { usleep(1000); }
 }
 
 /* ------------------------------------------------------------------------- *

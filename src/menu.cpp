@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
+#include <unistd.h>
 #include <allegro.h>
 using namespace std;
 #include "engine.h"
@@ -186,7 +187,7 @@ void Menu::newGame()
     setMoveMode(MAPMODE);
     setGameMode(INGAME);
 
-    while (timerTicks(HIRESTIMER) < mark);
+    while (timerTicks(HIRESTIMER) < mark) { usleep(1000); }
     Audio::playMusic();
 }
 
@@ -435,7 +436,7 @@ void Menu::enterCheat()
         drawText("Accepted", 191, 118, 131);
         blitToScreen();
         long mark = timerTicks(HIRESTIMER) + 100;
-        while (timerTicks(HIRESTIMER) < mark);
+        while (timerTicks(HIRESTIMER) < mark) { usleep(1000); }
     }
 }
 
@@ -479,6 +480,8 @@ bool Menu::tryAgainMenu()
         {   tryagain=false; mark = timerTicks(HIRESTIMER) + (100 / 5); }
         if (key[KEY_UP] && mark < timerTicks(HIRESTIMER))
         {   tryagain=true; mark = timerTicks(HIRESTIMER) + (100 / 5); }
+
+        usleep(1000);
     } while(!key[KEY_ENTER]);
     while(key[KEY_ENTER]);
     
@@ -545,6 +548,8 @@ void Menu::helpMenu()
                 if (key[KEY_ESC])
                 {   while(key[KEY_ESC]); return; }
             }
+
+            usleep(1000);
         } while (!key[KEY_ENTER] || _timermark > timerTicks(HIRESTIMER));
         while(key[KEY_ENTER]);
 
@@ -570,6 +575,8 @@ void Menu::helpMenu()
                     _timermark = timerTicks(HIRESTIMER) + (200 / 5);
                 }
             }
+
+            usleep(1000);
         } while (!key[KEY_ESC] || _timermark > timerTicks(HIRESTIMER));
         while(key[KEY_ESC]);
     } while (true);
@@ -662,13 +669,13 @@ void Menu::winGameScreen(int t, int x, int y, float delay)
     if (delay > 0)
     {   // wait specified time and then return
         long mark = timerTicks(HIRESTIMER);
-        while (timerTicks(HIRESTIMER) < mark + (delay * 200));
+        while (timerTicks(HIRESTIMER) < mark + (delay * 200)) { usleep(1000); }
         return;
     }
     else
     {   // wait for key, displaying blinking cursor updated at maxfps
         do
-        {   while(!timerTicked(FRAMETIMER));
+        {   while(!timerTicked(FRAMETIMER)) { usleep(1000); }
             drawSprite(3385+((int)(timerTicks(HIRESTIMER)/75)%2), 295, 185);
             blitToScreen();
         }while(!key[KEY_ENTER] && !key[KEY_SPACE] && !key[KEY_LCONTROL] &&
@@ -748,6 +755,7 @@ string Menu::getTextInput(int x, int y, int c, int maxchars, int pixwidth)
             drawText(input, x, y, c);
             blitToScreen();
         }
+        usleep(1000);
     }
     while (true);
     

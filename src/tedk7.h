@@ -34,33 +34,6 @@ class Matrix
     int _offsetx, _offsety;
 };
 
-// Declare all class data members
-float Player::Friction;                                            // player.h
-float Player::Gravity;                                             // player.h
-vector<Sprite*> Sprite::Sprites;                                   // sprite.h
-int Sprite::NextID;                                                // sprite.h
-vector<Item*> Item::Items;                                         // item.h
-float Enemy::Friction;                                             // enemy.h
-int Enemy::NextID;                                                 // enemy.h
-vector<Enemy*> Enemy::Enemies;                                     // enemy.h
-enemyspriteframe Enemy::SpriteFrame[MAXENEMYFRAMES+1];             // enemy.h
-vector<Portal> Portal::Portals;                                    // portal.h
-int Portal::NextID;                                                // portal.h
-int Lift::NextID = 0;                                              // lift.h
-int Lift::Locator::NextID = 0;                                     // lift.h
-int Lift::Liftstoptile, Lift::Liftlefttile, Lift::Liftrighttile;   // lift.h
-int Lift::Liftuptile, Lift::Liftdowntile;                          // lift.h
-vector<Lift> Lift::Lifts;                                          // lift.h
-vector<Lift::Locator> Lift::Locators[16];                          // lift.h
-int Shot::NextID;                                                  // shot.h
-vector<Shot*> Shot::Shots;                                         // shot.h
-bool Audio::Nosound = false;                                       // audio.h
-int Audio::MusicVol = 255;                                         // audio.h
-int Audio::SoundfxVol = 255;                                       // audio.h
-ALMP3_MP3* Audio::Music = NULL;                                    // audio.h
-DATAFILE* Audio::MusicData = NULL;                                 // audio.h
-vector<SoundData> Audio::SoundFX;                                  // audio.h
-
 bool   forcewindowed = false;
 int    mapformatin = K7W;
 int    mapformatout = K7W;

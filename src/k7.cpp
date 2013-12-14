@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <unistd.h>
 #include <allegro.h>
 #include <almp3.h>
 using namespace std;
@@ -33,7 +34,7 @@ void main(int argc, char *argv[])
     {   if (strcmp(argv[i], "-windowed") == 0) forcewindowed = true;
         if (strcmp(argv[i], "-nosound") == 0) Audio::Nosound = true;
     }
-    //forcewindowed = true;
+    forcewindowed = true;
     
     // --- Initialize Allegro ---
     allegro_init();
@@ -99,7 +100,8 @@ void mainloop()
             scoreboard->tick();
             drawScreen();
         }
-        
+        usleep(1000);
+
         if (gamecompleteflag)                    // game has been won; stop
         {   gamecompleteflag=false; winGame(); } // play and show winGame
         if (levelsComplete[curlevel])           // end level with victory
@@ -244,7 +246,7 @@ void startLevel(int level)
     movemode = JUMPMODE;
     gamemode = INGAME;
 
-    while(timerTicks(HIRESTIMER) < mark);
+    while(timerTicks(HIRESTIMER) < mark) { usleep(1000); }
     Audio::playMusic();
 }
 
@@ -496,7 +498,7 @@ void grabBitmap(BITMAP* bitmap, int srcx, int srcy, int destx, int desty,
 void tryAgainMenu()
 {
     long mark = timerTicks(HIRESTIMER) + 200;
-    while(mark > timerTicks(HIRESTIMER));
+    while(mark > timerTicks(HIRESTIMER)) { usleep(1000); }
     
     if (menu->tryAgainMenu())
     // Try the level again
@@ -537,7 +539,7 @@ void endLevel(bool successful)
     movemode = MAPMODE;
     gamemode = INGAME;
     
-    while (mark > timerTicks(HIRESTIMER));
+    while (mark > timerTicks(HIRESTIMER)) { usleep(1000); };
     Audio::playMusic();
 }
 

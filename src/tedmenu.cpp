@@ -1,4 +1,5 @@
 #include <math.h>
+#include <unistd.h>
 #include <allegro.h>
 using namespace std;
 #include "engine.h"
@@ -202,7 +203,7 @@ bool Menu::leftClick(int x, int y)
             drawText("Map Saved", 287, 237, 70);
             blitToScreen();
             long mark = timerTicks(HIRESTIMER) + 200;
-            while (timerTicks(HIRESTIMER) < mark);
+            while (timerTicks(HIRESTIMER) < mark) { usleep(1000); }
             menustate = 0;
         }
     }
@@ -226,7 +227,7 @@ bool Menu::leftClick(int x, int y)
                 drawText("Bad filename", 287, 237, 32);
                 blitToScreen();
                 long mark = timerTicks(HIRESTIMER) + 300;
-                while (timerTicks(HIRESTIMER) < mark);
+                while (timerTicks(HIRESTIMER) < mark) { usleep(1000); }
             }
             menustate = 0;
         }
@@ -246,7 +247,7 @@ bool Menu::leftClick(int x, int y)
                 drawText("Load failed", 287, 237, 32);
                 blitToScreen();
                 long mark = timerTicks(HIRESTIMER) + 300;
-                while (timerTicks(HIRESTIMER) < mark);
+                while (timerTicks(HIRESTIMER) < mark) { usleep(1000); }
             }
             else if (file != "") { currentMap = file; }
             menustate = 0;
@@ -1026,7 +1027,8 @@ int Menu::chooseTile(int curtile)
             {   tileChooserRow = (getNumTiles() / 18) - 5; }
             scrollmark = timerTicks(HIRESTIMER) + 40; }
         // ----------------------------------------------------------
-        
+
+        usleep(1000);
     } while (!getQuitGame());
     return -1;
 }
@@ -1114,7 +1116,8 @@ void Menu::chooseMusic()
                 {   mapSetMusic(musfile); exit = true; }
             }   
         }   // -------------------------------------------------------
-        
+
+        usleep(1000);
     } while (!exit && !getQuitGame());
     
     Audio::stopMusic();
@@ -1252,7 +1255,8 @@ void Menu::promptNewMap()
                     currentMap = "new.map"; return; }
             }
         }   // -------------------------------------------------------
-        
+
+        usleep(1000);
     } while (!getQuitGame());
 }
 
@@ -1392,7 +1396,8 @@ void Menu::promptTileReplace()
                 }
             }
         }   // -------------------------------------------------------
-        
+
+        usleep(1000);
     } while (!exit && !getQuitGame());
 }
 
@@ -1441,6 +1446,8 @@ string Menu::getTextInput(int x, int y, int c, int maxchars, int pixwidth,
                 {   input += (char)(key & 0xff); }
             }
         }
+
+        usleep(1000);
     }
     while (true);
     
