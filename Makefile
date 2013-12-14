@@ -9,12 +9,10 @@ KEEN_OBJ = obj/k7.o obj/graphicslib.o obj/map.o obj/player.o obj/menu.o obj/came
 TED_OBJ  = obj/ted.o obj/audio.o obj/camera.o obj/enemy.o obj/graphicslib.o obj/item.o obj/lift.o obj/map.o obj/player.o obj/portal.o obj/sprite.o obj/shot.o obj/tedmenu.o
 ALMP3    = almp3/src/lib/libalmp3.a
 
-INCS    = 
 CXXINCS = -I"allegro4/include" -I"almp3/src/include"
-LIBS    = -L"allegro4/lib" -L"almp3/src/lib" -mwindows -lalmp3 -lalleg -s 
+LIBS    = -L"allegro4/lib" -L"almp3/src/lib" -mwindows -lalmp3 -lalleg #-s 
 
-CFLAGS   = $(INCS) -fexpensive-optimizations -O1
-CXXFLAGS = $(CXXINCS) -D__GTHREAD_HIDE_WIN32API -g -fexpensive-optimizations -O1
+CXXFLAGS = -g $(CXXINCS) -D__GTHREAD_HIDE_WIN32API -g -fexpensive-optimizations -O1
 
 .PHONY: all clean prebuild keen ted
 .SECONDARY: $(OBJ)
