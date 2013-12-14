@@ -32,7 +32,8 @@ endif
 # Tools
 #
 
-MAKE := make
+MAKE  = make
+MKDIR = mkdir
 
 #
 # Functions
@@ -49,10 +50,12 @@ TARGET  = $(if $(IS_WIN),MINGW32_STATIC,LINUX_STATIC)
 #
 
 src/lib/libalmp3.a:
+	-@$(MKDIR) $(call slashes,src/obj/$(OBJ_DIR)/static)
+	-@$(MKDIR) $(call slashes,src/lib)
 	@$(MAKE) -C src CC=gcc TARGET=$(TARGET) LIBDEST=lib/libalmp3.a alincdir=../../allegro4/include
 
 # almp3's makefile is not called to clean up because it uses 'rm' which won't
 # work in a Windows environment. The cleanup is trivial anyway.
 clean:
-	-@$(call rm, src/lib/libalmp3.a)
-	-@$(call rm, src/obj/$(OBJ_DIR)/static/*.o)
+	-@$(call rm, $(call slashes,src/lib/libalmp3.a))
+	-@$(call rm, $(call slashes,src/obj/$(OBJ_DIR)/static/*.o))
