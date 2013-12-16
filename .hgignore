@@ -5,3 +5,4 @@ almp3/src/lib/*.a
 bin/keen7.exe
 bin/ted.exe
 bin/allegro.cfg
+bin/alleg44.dll

@@ -1,7 +1,8 @@
 TODO
 ----
+[X] Upgrade to Allegro 4.4.3 (with gcw0 support)
+[ ] Fixup installer script
 [ ] Change bit depth to 32
     [ ] Fix transparency on all graphics images
-[ ] Fixup installer script
-[ ] Upgrade to Allegro 4.4.3 (with gcw0 support)
 [ ] Refactor code
+	[ ] Fixed timer routines

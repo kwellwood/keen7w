@@ -1,1 +1,1 @@
-Allegro 4.2.2 prebuilt binaries for MinGW
+Allegro 4.4.3 prebuilt binaries for MinGW 4.6.2

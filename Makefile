@@ -10,9 +10,14 @@ TED_OBJ  = obj/ted.o obj/audio.o obj/camera.o obj/enemy.o obj/graphicslib.o obj/
 ALMP3    = almp3/src/lib/libalmp3.a
 
 CXXINCS = -I"allegro4/include" -I"almp3/src/include"
-LIBS    = -L"allegro4/lib" -L"almp3/src/lib" -mwindows -lalmp3 -lalleg #-s 
+LIBS    = -L"allegro4/lib" -L"almp3/src/lib" -mwindows -lalmp3 -lalleg44.dll
 
-CXXFLAGS = -g $(CXXINCS) -D__GTHREAD_HIDE_WIN32API -g -fexpensive-optimizations -O1
+# -g : include debugging info
+CXXFLAGS = $(CXXINCS) -g -D__GTHREAD_HIDE_WIN32API -fexpensiv4e-optimizations -O1
+
+# -static : link against static runtime (gnat)
+# -s      : strip debug symbols
+LINKFLAGS = -static #-s
 
 .PHONY: all clean prebuild keen ted
 .SECONDARY: $(OBJ)
@@ -26,10 +31,10 @@ clean:
 	$(MAKE) -C almp3 clean
 
 bin/keen7.exe: prebuild $(KEEN_OBJ) $(ALMP3)
-	$(CPP) $(KEEN_OBJ) -o "$@" $(LIBS)
+	$(CPP) $(KEEN_OBJ) -o "$@" $(LINKFLAGS) $(LIBS)
 
 bin/ted.exe: prebuild $(TED_OBJ) $(ALMP3)
-	$(CPP) $(TED_OBJ) -o "$@" $(LIBS)
+	$(CPP) $(TED_OBJ) -o "$@" $(LINKFLAGS) $(LIBS)
 
 obj/%.o: src/%.cpp
 	$(CPP) -c src/$*.cpp -o $@ $(CXXFLAGS)
