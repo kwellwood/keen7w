@@ -9,11 +9,12 @@ KEEN_OBJ = obj/k7.o obj/graphicslib.o obj/map.o obj/player.o obj/menu.o obj/came
 TED_OBJ  = obj/ted.o obj/audio.o obj/camera.o obj/enemy.o obj/graphicslib.o obj/item.o obj/lift.o obj/map.o obj/player.o obj/portal.o obj/sprite.o obj/shot.o obj/tedmenu.o
 ALMP3    = almp3/src/lib/libalmp3.a
 
-CXXINCS = -I"allegro4/include" -I"almp3/src/include"
-LIBS    = -L"allegro4/lib" -L"almp3/src/lib" -mwindows -lalmp3 -lalleg44.dll
+CXXINCS = -Ialmp3/src/include -Iallegro4/addons/loadpng/include -Iallegro4/include
+LIBS    = -Lalmp3/src/lib -Lallegro4/addons/loadpng/lib -Lallegro4/lib \
+          -mwindows -lalmp3 -lloadpng -lalleg44.dll
 
 # -g : include debugging info
-CXXFLAGS = $(CXXINCS) -g -D__GTHREAD_HIDE_WIN32API -fexpensiv4e-optimizations -O1
+CXXFLAGS = $(CXXINCS) -g -D__GTHREAD_HIDE_WIN32API -fexpensive-optimizations -O1
 
 # -static : link against static runtime (gnat)
 # -s      : strip debug symbols
@@ -41,6 +42,11 @@ obj/%.o: src/%.cpp
 
 $(ALMP3):
 	$(MAKE) -C almp3
+
+media: bin/kevin.dat
+
+bin/kevin.dat:
+	cd bin && dat -f -k -s0 -a -t PNG kevin.dat $(addprefix graphics/,1000pt.png)
 
 prebuild:
 	-@$(MKDIR) obj
