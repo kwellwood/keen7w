@@ -20,12 +20,12 @@ CXXFLAGS = $(CXXINCS) -g -D__GTHREAD_HIDE_WIN32API -fexpensive-optimizations -O1
 # -s      : strip debug symbols
 LINKFLAGS = -static #-s
 
-.PHONY: all clean prebuild keen ted
+.PHONY: all clean prebuild keen ted $(BIN_GRAPHICS_FILES)
 .SECONDARY: $(OBJ)
 
 keen: bin/keen7.exe
 ted: bin/ted.exe
-all: keen ted
+all: keen ted media
 
 clean:
 	-$(RM) $(KEEN_OBJ) $(TED_OBJ) bin/keen7.exe bin/ted.exe
@@ -45,8 +45,14 @@ $(ALMP3):
 
 media: bin/kevin.dat
 
-bin/kevin.dat:
-	cd bin && dat -f -k -s0 -a -t PNG kevin.dat $(addprefix graphics/,1000pt.png)
+GRAPHICS_FILES := $(addprefix graphics/,$(shell cat bin/kevin.txt))
+BIN_GRAPHICS_FILES := $(addprefix bin/,$(GRAPHICS_FILES))
+
+bin/kevin.dat: bin/kevin.txt $(BIN_GRAPHICS_FILES)
+
+bin/graphics/%.png:
+	cd bin && dat -f -k -c0 -s0 -a -t PNG kevin.dat graphics/$*.png
 
 prebuild:
 	-@$(MKDIR) obj
+	-copy allegro4\bin\dat.exe bin\dat.exe

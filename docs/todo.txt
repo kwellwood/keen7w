@@ -3,6 +3,15 @@ TODO
 [X] Upgrade to Allegro 4.4.3 (with gcw0 support)
 [ ] Fixup installer script
 [ ] Change bit depth to 32
-    [ ] Fix transparency on all graphics images
+    [ ] Fix transparency on all graphics images - convert all bmp to png
+[ ] Fixes for graphics library
+    [ ] update graphics.txt to use lower-case png files
+    [ ] no need to read tile set file name from engine.cfg
+    [ ] 
+    [ ] Use loadpng to read 'PNG ' files from graphics.dat
+    [ ] Delete bitmaps in destructor
+    [ ] Build graphics.dat from graphics.txt (the tile set)
+        [ ] Make a tool to call dat.exe while parsing <any>.txt; grab filename before whitespace on each line
+        [ ] Make graphicslib.cpp read graphics.txt when loading the tiles
 [ ] Refactor code
 	[ ] Fixed timer routines
